@@ -7,39 +7,39 @@
 </head>
 <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
     <script>
-        // إعدادات المحرك ليعمل مع Cloudflare Worker الخاص بك
-        CMS.init({
-            config: {
-                backend: {
-                    name: 'github',
-                    repo: 'ALFASHOOTER1/woordshare',
-                    branch: 'main',
-                    // الرابط أدناه هو رابط الوركر الذي أنشأته أنت
-                    base_url: 'https://auth-woordshare.ahmedali33661199.workers.dev',
-                    auth_endpoint: 'auth'
-                },
-                load_config_file: false, // نتجاهل config.yml لمنع التعارض
-                media_folder: 'assets/images',
-                public_folder: '/assets/images',
-                collections: [
-                    {
-                        name: 'software',
-                        label: 'البرامج المضافة',
-                        folder: 'content/software',
-                        create: true,
-                        slug: '{{slug}}',
-                        fields: [
-                            { label: 'العنوان', name: 'title', widget: 'string' },
-                            { label: 'رابط التحميل', name: 'download_url', widget: 'string' },
-                            { label: 'إصدار البرنامج', name: 'version', widget: 'string' },
-                            { label: 'وصف البرنامج', name: 'body', widget: 'markdown' }
-                        ]
-                    }
-                ]
-            }
-        });
+        // ننتظر ثانية واحدة للتأكد من استقرار المتصفح ومسح التعارضات
+        setTimeout(() => {
+            window.CMS.init({
+                config: {
+                    backend: {
+                        name: 'github',
+                        repo: 'ALFASHOOTER1/woordshare',
+                        branch: 'main',
+                        base_url: 'https://auth-woordshare.ahmedali33661199.workers.dev',
+                        auth_endpoint: 'auth'
+                    },
+                    load_config_file: false, // تجاهل أي ملفات config.yml خارجية نهائياً
+                    media_folder: 'assets/images',
+                    public_folder: '/assets/images',
+                    collections: [
+                        {
+                            name: 'software',
+                            label: 'البرامج المضافة',
+                            folder: 'content/software',
+                            create: true,
+                            slug: '{{slug}}',
+                            fields: [
+                                { label: 'العنوان', name: 'title', widget: 'string' },
+                                { label: 'رابط التحميل', name: 'download_url', widget: 'string' },
+                                { label: 'إصدار البرنامج', name: 'version', widget: 'string' },
+                                { label: 'وصف البرنامج', name: 'body', widget: 'markdown' }
+                            ]
+                        }
+                    ]
+                }
+            });
+        }, 1000);
     </script>
 </body>
 </html>

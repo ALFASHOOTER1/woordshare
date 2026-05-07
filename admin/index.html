@@ -8,8 +8,33 @@
 </head>
 <body>
   <script>
-    // هذه الوظيفة تربط الإعدادات بالمتصفح فوراً
-    CMS.init();
+    // تحديد مسار ملف الإعدادات يدوياً لحل مشكلة الصفحة البيضاء
+    CMS.init({
+      config: {
+        backend: {
+          name: 'github',
+          repo: 'ALFASHOOTER1/woordshare',
+          branch: 'main',
+          auth_type: 'implicit',
+          app_id: 'ضع_هنا_رقم_الـ_Client_ID_الخاص_بك' 
+        },
+        publish_mode: 'editorial_workflow',
+        media_folder: 'assets/images',
+        collections: [
+          {
+            name: 'software',
+            label: 'البرامج',
+            folder: 'content/software',
+            create: true,
+            fields: [
+              { label: 'العنوان', name: 'title', widget: 'string' },
+              { label: 'رابط التحميل', name: 'link', widget: 'string' },
+              { label: 'الوصف', name: 'body', widget: 'markdown' }
+            ]
+          }
+        ]
+      }
+    });
   </script>
 </body>
 </html>

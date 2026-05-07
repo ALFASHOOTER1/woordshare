@@ -1,0 +1,5 @@
+backend:
+  name: github
+  repo: ALFASHOOTER1/woordshare # اسم مستودعك
+  branch: main
+  base_url: https://your-gate-way.com # سأخبرك كيف تحصل عليه الآن

@@ -10,35 +10,33 @@
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
-            if (window.CMS) {
-                window.CMS.init({
-                    config: {
-                        backend: {
-                            name: 'github',
-                            repo: 'ALFASHOOTER1/woordshare',
-                            branch: 'main',
-                            auth_type: 'implicit',
-                            app_id: 'Ov23liCGJl8mYHNlk4AD' // الـ Client ID الخاص بك
-                        },
-                        display_url: 'https://woordshare.com',
-                        media_folder: 'assets/images',
-                        collections: [
-                            {
-                                name: 'software',
-                                label: 'البرامج',
-                                folder: 'content/software',
-                                create: true,
-                                fields: [
-                                    { label: 'العنوان', name: 'title', widget: 'string' },
-                                    { label: 'رابط التحميل', name: 'download_url', widget: 'string' },
-                                    { label: 'إصدار البرنامج', name: 'version', widget: 'string' },
-                                    { label: 'المحتوى الأساسي', name: 'body', widget: 'markdown' }
-                                ]
-                            }
-                        ]
-                    }
-                });
-            }
+            window.CMS.init({
+                config: {
+                    backend: {
+                        name: 'github',
+                        repo: 'ALFASHOOTER1/woordshare',
+                        branch: 'main',
+                        auth_type: 'implicit',
+                        app_id: 'Ov23liCGJl8mYHNlk4AD' // الـ Client ID الخاص بك
+                    },
+                    media_folder: 'assets/images',
+                    public_folder: '/assets/images',
+                    collections: [
+                        {
+                            name: 'software_posts', // اسم فريد لمنع خطأ التكرار
+                            label: 'البرامج المضافة',
+                            folder: 'content/software',
+                            create: true,
+                            fields: [
+                                { label: 'العنوان', name: 'title', widget: 'string' },
+                                { label: 'رابط التحميل', name: 'download_url', widget: 'string' },
+                                { label: 'الإصدار', name: 'version', widget: 'string' },
+                                { label: 'وصف البرنامج', name: 'body', widget: 'markdown' }
+                            ]
+                        }
+                    ]
+                }
+            });
         });
     </script>
 </body>

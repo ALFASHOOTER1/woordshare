@@ -1,40 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>لوحة التحكم | محمد علي</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة التحكم | WOORDSHARE</title>
 </head>
 <body>
-  <script>
-    // تحديد مسار ملف الإعدادات يدوياً لحل مشكلة الصفحة البيضاء
-    CMS.init({
-      config: {
-        backend: {
-          name: 'github',
-          repo: 'ALFASHOOTER1/woordshare',
-          branch: 'main',
-          auth_type: 'implicit',
-          app_id: 'ضع_هنا_رقم_الـ_Client_ID_الخاص_بك' 
-        },
-        publish_mode: 'editorial_workflow',
-        media_folder: 'assets/images',
-        collections: [
-          {
-            name: 'software',
-            label: 'البرامج',
-            folder: 'content/software',
-            create: true,
-            fields: [
-              { label: 'العنوان', name: 'title', widget: 'string' },
-              { label: 'رابط التحميل', name: 'link', widget: 'string' },
-              { label: 'الوصف', name: 'body', widget: 'markdown' }
-            ]
-          }
-        ]
-      }
-    });
-  </script>
+    <div id="nc-root"></div>
+
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <script>
+        // ننتظر حتى تكتمل عملية تحميل المكتبة تماماً
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.CMS) {
+                window.CMS.init({
+                    config: {
+                        backend: {
+                            name: 'github',
+                            repo: 'ALFASHOOTER1/woordshare',
+                            branch: 'main',
+                            auth_type: 'implicit',
+                            app_id: 'ضع_هنا_الـ_Client_ID_الخاص_بك' 
+                        },
+                        display_url: 'https://woordshare.com',
+                        media_folder: 'assets/images',
+                        collections: [
+                            {
+                                name: 'software',
+                                label: 'البرامج',
+                                folder: 'content/software',
+                                create: true,
+                                fields: [
+                                    { label: 'العنوان', name: 'title', widget: 'string' },
+                                    { label: 'رابط التحميل', name: 'download_url', widget: 'string' },
+                                    { label: 'إصدار البرنامج', name: 'version', widget: 'string' },
+                                    { label: 'المحتوى', name: 'body', widget: 'markdown' }
+                                ]
+                            }
+                        ]
+                    }
+                });
+            } else {
+                console.error("CMS library failed to load");
+            }
+        });
+    </script>
 </body>
 </html>

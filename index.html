@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="main-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WOORDSHARE | Universal Download Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            /* سيتم تغيير الخط بناءً على اللغة بواسطة JS */
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .logo span { color: var(--primary-color); }
+
+        .nav-container { display: flex; align-items: center; gap: 30px; }
+
+        nav ul { display: flex; list-style: none; gap: 20px; }
+
+        nav ul li a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Language Switcher Button */
+        .lang-switch {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Hero Section */
+        .hero { text-align: center; padding: 80px 20px; background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 800; }
+
+        .search-container { max-width: 600px; margin: 0 auto; }
+        .search-container input {
+            width: 100%; padding: 15px 25px; border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.1); background: var(--card-bg);
+            color: white; outline: none; text-align: center;
+        }
+
+        /* Content Grid */
+        .content-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding: 50px 5%; }
+        .card { background: var(--card-bg); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
+        .card-img { width: 100%; height: 160px; background: #2d3748; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+        .card-info { padding: 20px; }
+        .badge { background: var(--primary-color); color: white; padding: 4px 12px; border-radius: 5px; font-size: 0.7rem; margin-bottom: 10px; display: inline-block; }
+        .download-btn { display: block; width: 100%; text-align: center; background: var(--primary-color); color: white; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 15px; }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #64748b; font-size: 0.8rem; }
+
+        /* RTL Specific adjustment */
+        [dir="rtl"] body { font-family: 'Cairo', sans-serif; }
+        [dir="ltr"] body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">WOORD<span>SHARE</span></a>
+        <div class="nav-container">
+            <nav>
+                <ul id="nav-menu">
+                    </ul>
+            </nav>
+            <button class="lang-switch" onclick="toggleLanguage()" id="lang-btn">العربية</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1 id="hero-title">Everything you need in one place</h1>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search for apps, movies, or experts...">
+        </div>
+    </section>
+
+    <main class="content-grid" id="main-content">
+        </main>
+
+    <footer id="footer-text">
+        All rights reserved © 2026 WOORDSHARE
+    </footer>
+
+    <script>
+        // قاموس اللغات
+        const translations = {
+            en: {
+                dir: "ltr",
+                font: "'Poppins', sans-serif",
+                langBtn: "العربية",
+                heroTitle: "Everything you need in one place",
+                searchPlaceholder: "Search for apps, movies, or experts...",
+                footer: "All rights reserved © 2026 WOORDSHARE",
+                nav: ["Home", "Software", "Movies", "Experts", "Games"],
+                items: [
+                    { title: "Internet Download Manager", cat: "Software", desc: "Full version with activation.", btn: "Download Now", icon: "📦" },
+                    { title: "Gold Hunter EA", cat: "Experts", desc: "Professional MT4 Expert Advisor.", btn: "Download Now", icon: "📈" },
+                    { title: "The Programmer 2026", cat: "Movies", desc: "4K Quality with subtitles.", btn: "Watch Now", icon: "🎬" }
+                ]
+            },
+            ar: {
+                dir: "rtl",
+                font: "'Cairo', sans-serif",
+                langBtn: "English",
+                heroTitle: "كل ما تحتاجه في مكان واحد",
+                searchPlaceholder: "ابحث عن برنامج، فيلم، أو إكسبيرت...",
+                footer: "جميع الحقوق محفوظة © 2026 WOORDSHARE",
+                nav: ["الرئيسية", "برامج", "أفلام", "إكسبيرتات", "ألعاب"],
+                items: [
+                    { title: "انترنت داونلود مانجر", cat: "برامج", desc: "النسخة الكاملة مع التفعيل.", btn: "تحميل الآن", icon: "📦" },
+                    { title: "إكسبيرت صائد الذهب", cat: "إكسبيرتات", desc: "إكسبيرت احترافي لمنصة MT4.", btn: "تحميل الآن", icon: "📈" },
+                    { title: "فيلم المبرمج 2026", cat: "أفلام", desc: "جودة 4K مع الترجمة.", btn: "مشاهدة الآن", icon: "🎬" }
+                ]
+            }
+        };
+
+        let currentLang = 'en';
+
+        function updateUI() {
+            const t = translations[currentLang];
+            
+            // تحديث الاتجاه واللغة
+            document.getElementById('main-html').dir = t.dir;
+            document.body.style.fontFamily = t.font;
+            document.getElementById('lang-btn').innerText = t.langBtn;
+            
+            // تحديث النصوص الثابتة
+            document.getElementById('hero-title').innerText = t.heroTitle;
+            document.getElementById('search-input').placeholder = t.searchPlaceholder;
+            document.getElementById('footer-text').innerText = t.footer;
+
+            // تحديث القائمة
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.innerHTML = t.nav.map(item => `<li><a href="#">${item}</a></li>`).join('');
+
+            // تحديث البطاقات (Content)
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = t.items.map(item => `
+                <div class="card">
+                    <div class="card-img">${item.icon}</div>
+                    <div class="card-info">
+                        <span class="badge">${item.cat}</span>
+                        <div class="card-title" style="font-weight:bold; font-size:1.2rem; margin-bottom:5px;">${item.title}</div>
+                        <p style="font-size:0.9rem; color:#94a3b8;">${item.desc}</p>
+                        <a href="#" class="download-btn">${item.btn}</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            updateUI();
+        }
+
+        // تشغيل الواجهة عند التحميل لأول مرة
+        updateUI();
+    </script>
+</body>
+</html>

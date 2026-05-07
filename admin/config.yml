@@ -1,7 +1,0 @@
-backend:
-  name: github
-  repo: ALFASHOOTER1/woordshare
-  branch: main
-  # هذا السطر هو الأهم، تأكد أنه يشير للـ Worker الخاص بك
-  base_url: https://auth-woordshare.ahmedali33661199.workers.dev
-  auth_endpoint: auth

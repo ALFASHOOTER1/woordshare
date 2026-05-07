@@ -3,8 +3,13 @@ backend:
   repo: ALFASHOOTER1/woordshare
   branch: main
   auth_type: implicit
-  app_id: Ov23liCGJl8mYHNlk4AD # الـ Client ID الخاص بك
+  app_id: Ov23liCGJl8mYHNlk4AD
 
+# إعدادات العرض
+display_url: https://woordshare.com
+logo_url: https://woordshare.com/logo.png
+
+# أماكن الحفظ
 media_folder: "assets/images"
 public_folder: "/assets/images"
 
@@ -13,8 +18,9 @@ collections:
     label: "البرامج"
     folder: "content/software"
     create: true
+    slug: "{{slug}}"
     fields:
       - { label: "العنوان", name: "title", widget: "string" }
       - { label: "رابط التحميل", name: "download_url", widget: "string" }
       - { label: "الإصدار", name: "version", widget: "string" }
-      - { label: "الوصف", name: "body", widget: "markdown" }
+      - { label: "وصف البرنامج", name: "body", widget: "markdown" }

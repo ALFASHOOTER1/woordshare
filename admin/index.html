@@ -1,43 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar">
-<head>
+<html>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>لوحة التحكم | WOORDSHARE</title>
-</head>
-<body>
-    <div id="nc-root"></div>
+    <title>لوحة التحكم | محمد علي</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            window.CMS.init({
-                config: {
-                    backend: {
-                        name: 'github',
-                        repo: 'ALFASHOOTER1/woordshare',
-                        branch: 'main',
-                        auth_type: 'implicit',
-                        app_id: 'Ov23liCGJl8mYHNlk4AD' // الـ Client ID الخاص بك
-                    },
-                    media_folder: 'assets/images',
-                    public_folder: '/assets/images',
-                    collections: [
-                        {
-                            name: 'software_posts', // اسم فريد لمنع خطأ التكرار
-                            label: 'البرامج المضافة',
-                            folder: 'content/software',
-                            create: true,
-                            fields: [
-                                { label: 'العنوان', name: 'title', widget: 'string' },
-                                { label: 'رابط التحميل', name: 'download_url', widget: 'string' },
-                                { label: 'الإصدار', name: 'version', widget: 'string' },
-                                { label: 'وصف البرنامج', name: 'body', widget: 'markdown' }
-                            ]
-                        }
-                    ]
-                }
-            });
-        });
-    </script>
-</body>
+  </body>
 </html>

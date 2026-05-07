@@ -9,6 +9,9 @@
     <div id="nc-root"></div>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
+        // هذا السطر يمسح أي إعدادات قديمة في المتصفح فور تحميل الصفحة
+        localStorage.clear(); 
+        
         window.CMS.init({
             config: {
                 backend: {
@@ -18,17 +21,15 @@
                     base_url: 'https://auth-woordshare.ahmedali33661199.workers.dev',
                     auth_endpoint: 'auth'
                 },
-                load_config_file: false, // هذا السطر سيمنع ظهور الخطأ في صورتك
-                display_url: 'https://woordshare.com',
-                media_folder: 'assets/images', // مطلب إجباري
+                load_config_file: false,
+                media_folder: 'assets/images',
                 public_folder: '/assets/images',
-                collections: [ // مطلب إجباري
+                collections: [
                     {
                         name: 'software',
                         label: 'البرامج المضافة',
                         folder: 'content/software',
                         create: true,
-                        slug: '{{slug}}',
                         fields: [
                             { label: 'العنوان', name: 'title', widget: 'string' },
                             { label: 'رابط التحميل', name: 'download_url', widget: 'string' },

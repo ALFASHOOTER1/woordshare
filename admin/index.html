@@ -7,11 +7,8 @@
 </head>
 <body>
     <div id="nc-root"></div>
-
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
     <script>
-        // ننتظر حتى تكتمل عملية تحميل المكتبة تماماً
         window.addEventListener('DOMContentLoaded', () => {
             if (window.CMS) {
                 window.CMS.init({
@@ -21,7 +18,7 @@
                             repo: 'ALFASHOOTER1/woordshare',
                             branch: 'main',
                             auth_type: 'implicit',
-                            app_id: 'ضع_هنا_الـ_Client_ID_الخاص_بك' 
+                            app_id: 'Ov23liCGJl8mYHNlk4AD' // الـ Client ID الخاص بك
                         },
                         display_url: 'https://woordshare.com',
                         media_folder: 'assets/images',
@@ -35,14 +32,12 @@
                                     { label: 'العنوان', name: 'title', widget: 'string' },
                                     { label: 'رابط التحميل', name: 'download_url', widget: 'string' },
                                     { label: 'إصدار البرنامج', name: 'version', widget: 'string' },
-                                    { label: 'المحتوى', name: 'body', widget: 'markdown' }
+                                    { label: 'المحتوى الأساسي', name: 'body', widget: 'markdown' }
                                 ]
                             }
                         ]
                     }
                 });
-            } else {
-                console.error("CMS library failed to load");
             }
         });
     </script>

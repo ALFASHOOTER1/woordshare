@@ -1,10 +1,9 @@
-
 backend:
   name: github
   repo: ALFASHOOTER1/woordshare
   branch: main
   auth_type: implicit
-  app_id: Ov23liCGJl8mYHNlk4AD
+  app_id: Ov23liCGJl8mYHNlk4AD # الـ Client ID الخاص بك
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
@@ -14,7 +13,6 @@ collections:
     label: "البرامج"
     folder: "content/software"
     create: true
-    slug: "{{slug}}"
     fields:
       - { label: "العنوان", name: "title", widget: "string" }
       - { label: "رابط التحميل", name: "download_url", widget: "string" }

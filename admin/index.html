@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,9 +7,7 @@
 </head>
 <body>
     <div id="nc-root"></div>
-
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
     <script>
         window.CMS.init({
             config: {
@@ -17,25 +15,23 @@
                     name: 'github',
                     repo: 'ALFASHOOTER1/woordshare',
                     branch: 'main',
-                    // رابط الوركر الخاص بك
                     base_url: 'https://auth-woordshare.ahmedali33661199.workers.dev',
                     auth_endpoint: 'auth'
                 },
-                load_config_file: false,
+                load_config_file: false, // لضمان عدم قراءة أي ملف قديم
                 media_folder: 'assets/images',
                 public_folder: '/assets/images',
                 collections: [
                     {
                         name: 'software',
-                        label: 'البرامج المضافة',
+                        label: 'البرامج',
                         folder: 'content/software',
                         create: true,
-                        slug: '{{slug}}',
                         fields: [
                             { label: 'العنوان', name: 'title', widget: 'string' },
                             { label: 'رابط التحميل', name: 'download_url', widget: 'string' },
-                            { label: 'إصدار البرنامج', name: 'version', widget: 'string' },
-                            { label: 'وصف البرنامج', name: 'body', widget: 'markdown' }
+                            { label: 'الإصدار', name: 'version', widget: 'string' },
+                            { label: 'الوصف', name: 'body', widget: 'markdown' }
                         ]
                     }
                 ]

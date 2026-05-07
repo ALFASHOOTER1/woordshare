@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,20 +18,22 @@
                     base_url: 'https://auth-woordshare.ahmedali33661199.workers.dev',
                     auth_endpoint: 'auth'
                 },
-                load_config_file: false, // لضمان عدم قراءة أي ملف قديم
-                media_folder: 'assets/images',
+                load_config_file: false, // هذا السطر سيمنع ظهور الخطأ في صورتك
+                display_url: 'https://woordshare.com',
+                media_folder: 'assets/images', // مطلب إجباري
                 public_folder: '/assets/images',
-                collections: [
+                collections: [ // مطلب إجباري
                     {
                         name: 'software',
-                        label: 'البرامج',
+                        label: 'البرامج المضافة',
                         folder: 'content/software',
                         create: true,
+                        slug: '{{slug}}',
                         fields: [
                             { label: 'العنوان', name: 'title', widget: 'string' },
                             { label: 'رابط التحميل', name: 'download_url', widget: 'string' },
-                            { label: 'الإصدار', name: 'version', widget: 'string' },
-                            { label: 'الوصف', name: 'body', widget: 'markdown' }
+                            { label: 'إصدار البرنامج', name: 'version', widget: 'string' },
+                            { label: 'وصف البرنامج', name: 'body', widget: 'markdown' }
                         ]
                     }
                 ]
